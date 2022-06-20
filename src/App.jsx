@@ -4,9 +4,6 @@ function App() {
 
   return (
     <>
-      <h1>
-        heroes app
-      </h1>
 
       <AppRouter />
     </>
