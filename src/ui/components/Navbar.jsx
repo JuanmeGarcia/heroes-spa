@@ -1,8 +1,15 @@
 import { Link, NavLink } from 'react-router-dom'
+import { useAuthContext } from '../../auth/context'
 import { useChangeURL } from '../../auth/hooks/useChangeURL'
 
 export const Navbar = () => {
 	const { handleChangeUrl } = useChangeURL('./login', true)
+	const { user, logout } = useAuthContext() 
+
+	const onLogout = () => {
+		logout()
+		handleChangeUrl()
+	}
 
 	return (
 		<nav className="navbar navbar-expand-sm navbar-dark bg-dark p-2">
@@ -39,11 +46,11 @@ export const Navbar = () => {
 			<div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
 				<ul className="navbar-nav ml-auto">
 					<span className="nav-item nav-link text-primary">
-						Juanme Garcia
+						{ user }
 					</span>
 					<button
 						className="btn nav-item nav-link btn-outline-primary"
-						onClick={handleChangeUrl}
+						onClick={onLogout}
 					>
 						Logout
 					</button>

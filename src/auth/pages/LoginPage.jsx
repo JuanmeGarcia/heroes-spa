@@ -1,8 +1,17 @@
+import { useAuthContext } from "../context"
 import { useChangeURL } from "../hooks/useChangeURL"
 
 export const LoginPage = () => {
 
+  const { login } = useAuthContext()
   const { handleChangeUrl } = useChangeURL('/marvel', true)
+
+
+  const onLogin = () => {
+    login('Juanme :D')
+    handleChangeUrl()
+  }
+
 
   return (
     <div className="container mt-5">
@@ -11,7 +20,7 @@ export const LoginPage = () => {
 
         <button 
           className="btn btn-primary"
-          onClick={handleChangeUrl}
+          onClick={() => onLogin()}
         >
           Login
         </button>

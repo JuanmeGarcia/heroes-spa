@@ -68,14 +68,14 @@ export const SearchPage = () => {
 
             {
               q.length <= 0 && !q ? (
-                <div className="alert alert-primary">
+                <div className="alert alert-primary animate__animated animate__fadeInRight">
                   Search a hero!
                 </div>
               ) : <></>
             }
             {
               renderHeroes.length <= 0 && q ? (
-                <div className="alert alert-danger">
+                <div className="alert alert-danger animate__animated animate__fadeInRight">
                   No hero with <b>{q}</b>
                 </div>
               ) : <></>
@@ -84,7 +84,6 @@ export const SearchPage = () => {
 
             {renderHeroes}
 
-            {/* <HeroCard /> */}
           </div>
         </div>
     </>
