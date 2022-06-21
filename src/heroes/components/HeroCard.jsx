@@ -19,19 +19,19 @@ export const HeroCard = ({ hero }) => {
 						<div className="card-body">
 							<h2 className="card-title">{hero.superhero}</h2>
 
-              <p className="card-text">{hero.alter_ego}</p>
+							<p className="card-text">{hero.alter_ego}</p>
 
 							{hero.alter_ego !== hero.characters && (
 								<p className="card-text">{hero.characters}</p>
 							)}
 
-              <p className="card-text">
-                <small className="text-muted">{hero.first_appearance}</small>
-              </p> 
-              
-              <Link to={`/hero/${hero.id}`}>
-                Mas...
-              </Link>
+							<p className="card-text">
+								<small className="text-muted">
+									{hero.first_appearance}
+								</small>
+							</p>
+
+							<Link to={`/hero/${hero.id}`}>Mas...</Link>
 						</div>
 					</div>
 				</div>
