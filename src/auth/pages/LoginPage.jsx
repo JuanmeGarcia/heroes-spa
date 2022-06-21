@@ -1,10 +1,12 @@
+import { useEffect } from "react"
 import { useAuthContext } from "../context"
 import { useChangeURL } from "../hooks/useChangeURL"
 
 export const LoginPage = () => {
+  const lastPath = localStorage.getItem('lastPath') || '/'
 
   const { login } = useAuthContext()
-  const { handleChangeUrl } = useChangeURL('/marvel', true)
+  const { handleChangeUrl } = useChangeURL(lastPath, true)
 
 
   const onLogin = () => {
