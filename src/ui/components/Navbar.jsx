@@ -1,45 +1,73 @@
+import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { useAuthContext } from '../../auth/context'
 import { useChangeURL } from '../../auth/hooks/useChangeURL'
 
 export const Navbar = () => {
 	const { handleChangeUrl } = useChangeURL('./login', true)
-	const { user, logout } = useAuthContext() 
+	const { user, logout } = useAuthContext()
+	const [isOpen, setIsOpen] = useState(false)
 
 	const onLogout = () => {
 		logout()
 		handleChangeUrl()
 	}
 
+	useEffect(()=>{
+		console.log(isOpen)
+	}, [isOpen])
+
+	const onToggle = () => {
+		setIsOpen(prevIsOpen => !prevIsOpen)
+	}
+
 	return (
-		<nav className="navbar navbar-expand-sm navbar-dark bg-dark p-2">
-			<Link className="navbar-brand" to="/">
-				Asociaciones
+		<nav className="navbar-heroes">
+			<Link className="navbar-heroes__title" to="/">
+				Heroes SPA
 			</Link>
-			<div className="navbar-collapse">
-				<div className="navbar-nav">
+
+			<div className='navbar-heroes__burguer' onClick={onToggle}>
+				<span className='bar'></span>
+				<span className='bar'></span>
+				<span className='bar'></span>
+			</div>
+
+			<div className={`navbar-heroes__links ${isOpen && 'active'}`}>
+				<ul >
 					<NavLink
-						className={`nav-item nav-link ${args =>
-							args.active ? 'active' : ''}`}
 						to="/marvel"
 					>
 						Marvel
 					</NavLink>
 
 					<NavLink
-						className={`nav-item nav-link ${args =>
-							args.active ? 'active' : ''}`}
 						to="/dc"
 					>
 						DC
 					</NavLink>
 					<NavLink
-						className={`nav-item nav-link ${args =>
-							args.active ? 'active' : ''}`}
 						to="/search"
 					>
 						Search
 					</NavLink>
+
+					<button 
+						className='logout-button'
+						onClick={onLogout}
+					>
+						Logout
+					</button>
+				</ul>
+			</div>
+		</nav>
+		/* 		<nav className="navbar navbar-expand-sm navbar-dark bg-dark p-2">
+			<Link className="navbar-brand" to="/">
+				Asociaciones
+			</Link>
+			<div className="navbar-collapse">
+				<div className="navbar-nav">
+
 				</div>
 			</div>
 
@@ -56,6 +84,6 @@ export const Navbar = () => {
 					</button>
 				</ul>
 			</div>
-		</nav>
+		</nav> */
 	)
 }

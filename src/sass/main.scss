@@ -1,0 +1,23 @@
+@import './config';
+@import './heroCard';
+@import './login';
+@import './navbar';
+@import './search';
+@import './heroPage';
+@import './heroList';
+
+
+body{
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    background-color: #f0f1f6;
+}
+
+#root{
+    min-height: 100vh;
+    width: 100%;
+    background-color: #f0f1f6;
+    overflow-x: hidden;
+}
