@@ -4,7 +4,7 @@ export const HeroCard = ({ hero }) => {
 	const heroImage = `../assets/heroes/${hero.id}.jpg`
 
 	return (
-		<article className="hero-card">
+		<article className="hero-card animate__animated animate__fadeIn">
 			<figure className='hero-card__image'>
 				<img src={heroImage} alt={hero.superhero} />
 			</figure>
