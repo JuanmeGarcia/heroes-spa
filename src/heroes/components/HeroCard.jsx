@@ -21,8 +21,8 @@ export const HeroCard = ({ hero }) => {
 						{hero.first_appearance}
 					</small>
 				</p>
-				<Link to={`/hero/${hero.id}`}>Mas...</Link>
 			</div>
+			<Link to={`/hero/${hero.id}`} className='caption'>Ver más...</Link>
 		</article>
 
 		// <div className="col animate__animated animate__fadeIn">

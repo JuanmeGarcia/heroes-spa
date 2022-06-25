@@ -17,6 +17,7 @@
         position: relative;
         overflow: hidden;
         @include transition-ease;
+        color: #161616;
 
         &::before{
             content: '';

@@ -38,6 +38,7 @@
             margin-bottom: 1rem;
 
             &-item{
+                color: #161616;
                 span{
                     font-weight: bold;
                     color: #f44336;
@@ -83,11 +84,18 @@
 
 }
 
-@media(max-width: 450px){
+@media(max-width: 600px){
     .hero-page{
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
         padding: 0;
+
+        &__image{
+            padding-inline: 1rem;
+            img{
+                border-radius: 0 ;
+            }
+        }
 
         &__info{
             justify-content: start;
