@@ -35,6 +35,9 @@ export const Navbar = () => {
 
 			<div className={`navbar-heroes__links ${isOpen && 'active'}`}>
 				<ul >
+					<span className="text--distanced">
+						{ user }
+					</span>
 					<NavLink
 						to="/marvel"
 					>

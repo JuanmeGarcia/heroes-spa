@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { useForm } from '../../hooks/useForm'
 import { useAuthContext } from '../context'
 import { useChangeURL } from '../hooks/useChangeURL'
 
@@ -8,8 +9,14 @@ export const LoginPage = () => {
 	const { login } = useAuthContext()
 	const { handleChangeUrl } = useChangeURL(lastPath, true)
 
+	const { loginText, onInputChange} = useForm({loginText: ''})
+
+
+	console.log(loginText)
 	const onLogin = () => {
-		login('Juanme :D')
+		if(loginText.length <= 0) return
+		
+		login(loginText)
 		handleChangeUrl()
 	}
 
@@ -19,11 +26,16 @@ export const LoginPage = () => {
 				<h1>Login page</h1>
 			</nav>
 
-			<form action="" className='login__form'>
-				<button className="login__button" onClick={() => onLogin()}>
-					Login
-				</button>
-
+			<form onSubmit={onLogin} className="login__form">
+					<input
+						type="text"
+						name={'loginText'}
+						value={loginText}
+						onChange={onInputChange}
+						placeholder="Say your name, hero!"
+						required
+					/>
+					<button type="submit">Search</button>
 			</form>
 		</>
 	)

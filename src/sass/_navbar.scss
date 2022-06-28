@@ -38,6 +38,12 @@
     }
 
     &__links{
+
+        .text--distanced{
+            position: relative;
+            color: #f44336;
+
+        }
         ul{
             display: flex;
             gap: 1rem;
