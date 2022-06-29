@@ -56,8 +56,9 @@ export const SearchPage = () => {
 				) : (
 					<></>
 				)}
-
-				{renderHeroes}
+				<section className='hero-container'>
+					{renderHeroes}	
+				</section>
 			</section>
 
 			{/* // <section className=''>
